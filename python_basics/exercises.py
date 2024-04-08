@@ -300,4 +300,300 @@ print(local_greet('fr_MA.UTF-8'))       # Salut!
 ## Variable Scope
 #1 error my_value not defined
 
+#Strings
+"These aren't the droids you're looking for.".__len__()
+
+'confetti floating everywhere'.upper()
+
+name = 'Roger'
+
+'RoGeR'.casefold() == name.casefold()
+
+rhyme = "A pirate I was meant to be!\nTrim the sails and roam the sea!"
+print(rhyme)
+
+char_sequence = 'TXkgaG92ZXJjcmFmdCBpcyBmdWxsIG9mIGVlbHMu'
+
+'x' in char_sequence
+
+def is_empty(string_1):
+    return len(string_1) == 0
+
+print(is_empty('mars'))  # False
+print(is_empty('  '))    # False
+print(is_empty(''))      # True
+
+def is_empty_or_blank(s):
+    return not s.isalpha()
+
+print(is_empty_or_blank('mars'))  # False
+print(is_empty_or_blank('  '))    # True
+print(is_empty_or_blank(''))      # True
+
+'launch school tech & talk'.title()
+
+
+def starts_with(string, substring):
+    for index in range(0, len(substring)):
+        if string[index] != substring[index]:
+            return False
+    return True
+
+def starts_with(string, substring):
+    return string.startswith(substring)
+
+
+print(starts_with("launch", "la"))   # True
+print(starts_with("school", "sah"))  # False
+print(starts_with("school", "sch"))  # True
+
+def count_substrings(string, substring):
+    return string.count(substring)
+
+
+print(count_substrings("lemon lemon lemon", "lemon")) # 3
+print(count_substrings("laLAlaLA", "la")) # 2
+print(count_substrings("launch", "uno")) # 0
+
+## Lists
+#1 
+def first(list):
+    if list:
+        return list[0]
+    else:
+        return 'No elements in list'
+
+print(first(['Earth', 'Moon', 'Mars']))  # Earth
+
+test = []
+first(test)
+
 #2
+def last(list):
+    if list:
+        return list[-1]
+    else:
+        return 'No elements in list'
+    
+print(last(['Earth', 'Moon', 'Mars']))  # Mars
+
+#3
+energy = ['fossil', 'solar', 'wind', 'tidal', 'fusion']
+energy.remove('fossil')
+energy.append('geothermal')
+
+energy
+
+#4
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+letters = []
+for letter in alphabet:
+    letters.append(letter)
+
+list(alphabet)
+letters
+
+scores = [96, 47, 113, 89, 100, 102]
+len([score for score in scores if score >= 100])
+
+vocabulary = [
+    ['happy', 'cheerful', 'merry', 'glad'],
+    ['tired', 'sleepy', 'fatigued', 'drained'],
+    ['excited', 'eager', 'enthused', 'animated'],
+]
+
+for groups in vocabulary:
+    for word in groups:
+        print(word)
+
+
+for outer_index in range(0, len(vocabulary)):
+    for inner_index in range(0, len(vocabulary[outer_index])):
+        print(vocabulary[outer_index][inner_index])
+
+# happy
+# cheerful
+# merry
+# glad
+# tired
+# sleepy
+# etc...
+
+
+some_value1 = [0, 1, 0, 0, 1]
+some_value2 = 'I leave you my Kingdom, take good care of it.'
+
+type(some_value1)
+type(some_value2)
+
+
+destinations = ['Prague', 'London', 'Sydney', 'Belfast',
+                'Rome', 'Aruba', 'Paris', 'Bora Bora',
+                'Barcelona', 'Rio de Janeiro', 'Marrakesh',
+                'New York City']
+
+def contains(city, places):
+    for spot in places:
+        if spot == city:
+            return True
+    return False
+
+contains('Barcelona', destinations)  # True
+contains('Nashville', destinations)  # False
+
+passcode = ['11', 'jZ5', 'hQ3f*', '8!7g3', 'p3Fs']
+
+# Write some code here.
+print("-".join(passcode))
+# Expected return value: '11-jZ5-hQ3f*-8!7g3-p3Fs'
+
+grocery_list = ['paprika', 'tofu', 'garlic', 'quinoa',
+                'carrots', 'broccoli', 'hummus']
+
+while grocery_list:
+    print(grocery_list.pop(0))
+
+print(grocery_list)
+
+## Dictionaries
+#1
+
+car = {
+    'type' : 'sedan',
+    'color' : 'blue',
+    'mileage' : 80_000,
+}
+
+car['year'] = 2003
+
+#3
+car.pop('mileage')
+del car['mileage'] # doesnt return value of pair
+car
+
+#4
+print(car['color'])
+
+#5
+print(len(car))
+
+#6
+student = {
+    'id': 123,
+    'grade': 'B',
+}
+
+'name' in student
+'grade' in student
+
+#7
+cars = {
+    'car' : {
+        'type': 'sedan',
+        'color' : 'blue',
+        'year': 2003
+
+    },
+    'truck' : {
+        'type': 'pickup',
+        'color': 'red',
+        'year': 1998
+
+    }
+}
+
+car = [
+    ['type', 'sedan'],
+    ['color', 'blue'],
+    ['year', 2003]
+]
+
+
+
+numbers = {
+    'high':   100,
+    'medium': 50,
+    'low':    25,
+}
+
+half_numbers = []
+
+for num in numbers.values():
+    half_numbers.append(num // 2)
+
+print(half_numbers)
+
+numbers = {
+    'high':   100,
+    'medium': 50,
+    'low':    10,
+}
+
+for num in numbers.items():
+    print(f'A {num[0]} number is {num[1]}')
+
+## Debugging
+#1
+def find_first_nonzero_among(numbers):
+    for n in numbers:
+        if n != 0:
+            return n
+
+find_first_nonzero_among([0, 0, 1, 0, 2, 0])
+find_first_nonzero_among(1)
+
+#2
+def multiply_by_five(n):
+    return n * 5
+
+print("Hello! Which number would you like to multiply by 5?")
+number = input()
+
+print(f"The result is {multiply_by_five(number)}!")
+
+pets = { 'cat': 'pepe', 'dog': ['sparky', 'fido'], 'fish': 'oscar' }
+
+pets['dog'].append('bowser') 
+
+print(pets)  # Output: {'cat': 'pepe', 'dog': 'bowser', 'fish': 'oscar'}
+
+info = {'name': 'Srdjan', 'age': 38}
+
+print(info.get('city', 'Unknown'))
+
+import copy
+
+sub_list = ["-", "-", "-"]
+matrix = []
+
+for _ in range(3):
+    matrix.append(copy.deepcopy(sub_list))
+
+matrix[0][0] = "X"
+print(matrix) # [['X', '-', '-'], ['X', '-', '-'], ['X', '-', '-']]
+
+
+def find_maximum(numbers):
+    if not numbers:
+        return None
+    max_number = numbers[0]
+    for number in numbers:
+        if number > max_number:
+            max_number = number
+    return max_number
+
+print(find_maximum([45, 3, 10, 98, 22]))  # Expected 98
+print(find_maximum([-1, 0, 5, 3]))         # Expected 5
+print(find_maximum([-10, -3, -20, -2]))   # Expected -2
+
+def digit_product(str_num):
+    digits = [int(n) for n in str_num]
+    product = 1
+
+    for digit in digits:
+        product *= digit
+
+    return product
+
+result = digit_product('12345')
+print(result)  # expected: 120, actual: 0
